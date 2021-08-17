@@ -41,15 +41,7 @@ export default class MainSlider extends Slider {
         this.showSlides(this.slideIndex += n);
     }
 
-    // toggleButton(btnsmodul, n) {
-    //     btnsmodul.forEach(btn => {
-    //         btn.addEventListener('click',(e) => {
-    //             e.stopPropagation();
-    //             e.preventDefault();
-    //             this.plusSlides(n);
-    //         });
-    //     });
-    // }
+
 
     bindTriggers() {
         this.btns.forEach(item => {
@@ -64,7 +56,8 @@ export default class MainSlider extends Slider {
             });
         });
 
-        document.querySelectorAll('.prevmodule').forEach(item => {
+        // document.querySelectorAll('.prevmodule').forEach(item => {
+            this.prev.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -72,7 +65,8 @@ export default class MainSlider extends Slider {
             });
         });
 
-        document.querySelectorAll('.nextmodule').forEach(item => {
+        // document.querySelectorAll('.nextmodule').forEach(item => {
+            this.next.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
                 e.preventDefault();
@@ -90,10 +84,7 @@ export default class MainSlider extends Slider {
     
             this.showSlides(this.slideIndex);
             this.bindTriggers();
-            
-            // this.toggleButton(this.prevmodule, -1);
-            // this.toggleButton(this.nextmodule, 1);
-            
+                      
 
         } 
 

@@ -35,28 +35,25 @@ export default class MiniSlider extends Slider {
                 i--;
             }
         }
-        // if (this.slides[1].tagName == "BUTTON" && this.slides[2].tagName == "BUTTON") {
-        //     this.container.appendChild(this.slides[0]); // Slide
-        //     this.container.appendChild(this.slides[1]); // Btn
-        //     this.container.appendChild(this.slides[2]); // Btn
-        //     this.decorizeSlides();
-        // } else if (this.slides[1].tagName == "BUTTON"){
-        //     this.container.appendChild(this.slides[0]); // Slide
-        //     this.container.appendChild(this.slides[1]); // Btn
-        //     this.decorizeSlides();
-        // } else {
-        //     this.container.appendChild(this.slides[0]);
-        //     this.decorizeSlides();
-        // }
+        if (this.slides[1].tagName == "BUTTON" && this.slides[2].tagName == "BUTTON") {
+            this.container.appendChild(this.slides[0]); // Slide
+            this.container.appendChild(this.slides[1]); // Btn
+            this.container.appendChild(this.slides[2]); // Btn
+            this.decorizeSlides();
+        } else if (this.slides[1].tagName == "BUTTON"){
+            this.container.appendChild(this.slides[0]); // Slide
+            this.container.appendChild(this.slides[1]); // Btn
+            this.decorizeSlides();
+        } else {
+            this.container.appendChild(this.slides[0]);
+            this.decorizeSlides();
+        }
     }
 
     bindTriggers() {
-        this.next.addEventListener('click', () => {
-            this.nextSlide();
+        this.next[0].addEventListener('click', () =>  this.nextSlide());
 
-        });
-
-        this.prev.addEventListener('click', () => {
+        this.prev[0].addEventListener('click', () => {
             for (let i = this.slides.length - 1; i > 0; i--) {
                 if (this.slides[i].tagName !== "BUTTON") {
                     let active = this.slides[i];
@@ -66,21 +63,6 @@ export default class MiniSlider extends Slider {
                 }
             }
         });
-        // this.next.addEventListener('click', () => this.nextSlide());
-
-        // this.prev.addEventListener('click', () => {
-
-        //     for (let i = this.slides.length - 1; i > 0; i--) {
-        //         if (this.slides[i].tagName !== "BUTTON") {
-        //             let active = this.slides[i];
-        //             this.container.insertBefore(active, this.slides[0]);
-        //             this.decorizeSlides();
-        //             break;
-        //         }
-        //     }
-
-
-        // });
     }
 
     autoplayGo() {
